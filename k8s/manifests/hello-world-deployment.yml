@@ -17,9 +17,16 @@ spec:
       containers:
         # website::tag::2:: The container runs a Python webapp on port 5000 that responds with "Hello, World!"
         - name: hello-world
-          image: training/webapp:latest
+          image: nginx
           ports:
-            - containerPort: 5000
+            - containerPort: 80
+          resources:
+            limits:
+              cpu: 50m
+              memory: 100Mi
+            requests:
+              cpu: 10m
+              memory: 20Mi            
 ---
 # website::tag::3:: Expose the Python webapp on port 5000 via a Kubernetes LoadBalancer.
 kind: Service
@@ -31,6 +38,26 @@ spec:
     app: hello-world
   ports:
     - protocol: TCP
-      targetPort: 5000
+      targetPort: 80
       port: 5000
   type: LoadBalancer
+
+# ---
+# apiVersion: autoscaling/v2
+# kind: HorizontalPodAutoscaler
+# metadata:
+#   name: hello-world-hpa
+# spec:
+#   scaleTargetRef:
+#     apiVersion: apps/v1
+#     kind: Deployment
+#     name: hello-world-deployment
+#   minReplicas: 1
+#   maxReplicas: 10
+#   metrics:
+#     - type: Resource
+#       resource:
+#         name: cpu
+#         target:
+#           type: Utilization
+#           averageUtilization: 50

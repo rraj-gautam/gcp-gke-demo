@@ -14,8 +14,10 @@ terraform/**.json
 terraform.tfvars
 *.terraform.*
 .terraform
+*.tfstate
 # #######
 # General
+testreadme.md
 
 # Environment
 **/.env
