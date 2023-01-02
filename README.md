@@ -1,2 +1,1 @@
-# gcp-gke-demo
-Demo application deployed in GKE on Google Cloud Platform (GCP)
+A demo project with a private gke cluster deployed on GCP, including all dependent resources.
