@@ -1,8 +1,11 @@
 A demo project with a private gke cluster deployed on GCP, including all dependent resources.
 
 Folder Structure:
-- dev
+- `dev`
 contains terraform codes for GCP infrastrucutres.
 
-- k8s 
+- `k8s`
 contains kubernetes manifests managed from terraform.
+
+- `dev.tfvars`
+contains variables to be passed while applying terraform codes.
