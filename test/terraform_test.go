@@ -17,7 +17,7 @@ import (
 func TestTerraformGcpHelloWorldExample(t *testing.T) {
 	t.Parallel()
 
-	workingDir := test_structure.CopyTerraformFolderToTemp(t, "../", "terraform")
+	workingDir := test_structure.CopyTerraformFolderToTemp(t, "../", "terraform/dev")
 
 	// website::tag::1:: Get the Project Id to use
 	gcpProjectId := "test-devops-assignment"
@@ -34,7 +34,7 @@ func TestTerraformGcpHelloWorldExample(t *testing.T) {
 		// website::tag::4:: Variables to pass to our Terraform code using -var options
 		Vars: map[string]interface{}{
 			"cluster_name": inputClusterName,
-			"google_project": gcpProjectId,
+			"project_name": gcpProjectId,
 		},
 	})
 
