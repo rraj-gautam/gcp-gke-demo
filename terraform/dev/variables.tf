@@ -20,3 +20,6 @@ variable "subnet_regions" {
 
 variable "subnet_name" {
 }
+variable "cluster_name" {
+  
+}

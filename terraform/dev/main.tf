@@ -42,7 +42,7 @@ module "dev_gke" {
   project_name = local.project_name
   vpc_name = module.vpc.vpc_name
   subnet_name = local.subnet_name
-  cluster_name = "crew"
+  cluster_name = var.cluster_name
   region = local.region
   node_label_role = "global"
   master_version = "1.24.5-gke.600"
