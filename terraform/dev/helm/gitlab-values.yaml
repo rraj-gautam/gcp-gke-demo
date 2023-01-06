@@ -1,0 +1,14 @@
+replicas: 1
+gitlabUrl: https://gitlab.com/
+runnerRegistrationToken: "abc#124#"
+concurrent: 10
+logLevel: info
+logFormat: json
+rbac:
+ create: true
+namespace: gitlab-runner
+podLabels: { run: gitlab-ci }
+runners:
+ privileged: true
+ name: dev
+ tags: dev,self-hosted

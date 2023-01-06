@@ -1,0 +1,14 @@
+replicas: 1
+gitlabUrl: https://gitlab.com/
+runnerRegistrationToken: "" #get from project setting > CI/CD > runner > registration
+concurrent: 10
+logLevel: info
+logFormat: json
+rbac:
+ create: true
+namespace: gitlab-runner
+podLabels: { run: gitlab-ci }
+runners:
+ privileged: true
+ name: "runner_name"
+ tags: tag1_for_runner,tag2_for_runner
